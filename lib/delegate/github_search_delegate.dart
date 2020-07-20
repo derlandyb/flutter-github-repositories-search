@@ -5,9 +5,11 @@ import 'package:flutter_app_github_dev_dojo/screen/repository_tab_screen.dart';
 import 'package:flutter_app_github_dev_dojo/service/github_service.dart';
 import 'package:flutter_app_github_dev_dojo/util/pagination.dart';
 import 'package:flutter_app_github_dev_dojo/widgets/async_layout_constructor.dart';
+import 'package:flutter_app_github_dev_dojo/widgets/home_empty_view.dart';
 import 'package:flutter_app_github_dev_dojo/widgets/text_icon.dart';
 
 class GitHubSearchDelegate extends SearchDelegate<String> {
+
   @override
   List<Widget> buildActions(BuildContext context) {
     if (query.isNotEmpty) {
@@ -35,7 +37,7 @@ class GitHubSearchDelegate extends SearchDelegate<String> {
   @override
   Widget buildResults(BuildContext context) {
     if (query.isEmpty) {
-      return Container();
+      return HomeEmptyView();
     }
 
     return RepositoryList(query: query);
@@ -44,7 +46,7 @@ class GitHubSearchDelegate extends SearchDelegate<String> {
   @override
   Widget buildSuggestions(BuildContext context) {
     if (query.isEmpty) {
-      return Container();
+      return HomeEmptyView();
     }
 
     return ListTile(
@@ -56,6 +58,24 @@ class GitHubSearchDelegate extends SearchDelegate<String> {
 
   @override
   String get searchFieldLabel => "Search";
+
+  @override
+  ThemeData appBarTheme(BuildContext context) {
+    assert(context != null);
+    final ThemeData theme = Theme.of(context);
+    assert(theme != null);
+    return theme.copyWith(
+        inputDecorationTheme: InputDecorationTheme(hintStyle: TextStyle(color: theme.primaryTextTheme.headline.color)),
+        textTheme: theme.textTheme.copyWith(
+          headline: theme.textTheme.headline.copyWith(color: theme.primaryTextTheme.headline.color),
+          title: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
+        )
+    );
+  }
 }
 
 class RepositoryList extends StatefulWidget {

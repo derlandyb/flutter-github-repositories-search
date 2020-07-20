@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_github_dev_dojo/delegate/github_search_delegate.dart';
+import 'package:flutter_app_github_dev_dojo/widgets/home_empty_view.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,17 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children:[
-          Center(child: Icon(FlutterIcons.github_zoc, size: 48,)),
-          Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Center(child: const Text("Searh public repositories"))
-          )
-        ]
-      ),
+      body: HomeEmptyView(),
     );
   }
 }
