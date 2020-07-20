@@ -17,7 +17,7 @@ class RepositoryFolderScreen extends StatelessWidget {
       body: AsyncLayoutConstructor<List<RepositoryContent>>(
         future: GithubService.findFolderByUrl(content.url),
         hasDataWidget: (data) => ListContent(contents: data),
-        hasErrorWidget: (err) => const Center(child: Text("Ocorreu um erro")),
+        hasErrorWidget: (err) => const Center(child: Text("Error occurred")),
         loadingWidget: () => const Center(child: CircularProgressIndicator()),
         hasDataEmptyWidget: () => Container(),
       ),

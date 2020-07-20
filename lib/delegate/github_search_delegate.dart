@@ -25,7 +25,7 @@ class GitHubSearchDelegate extends SearchDelegate<String> {
   Widget buildLeading(BuildContext context) {
     return IconButton(
       icon: AnimatedIcon(
-        icon: AnimatedIcons.menu_close,
+        icon: AnimatedIcons.menu_arrow,
         progress: transitionAnimation,
       ),
       onPressed: () => close(context, null),
@@ -49,13 +49,13 @@ class GitHubSearchDelegate extends SearchDelegate<String> {
 
     return ListTile(
       leading: const Icon(Icons.book),
-      title: Text("Repositórios com $query"),
+      title: Text("Repositories contains $query"),
       onTap: () => showResults(context),
     );
   }
 
   @override
-  String get searchFieldLabel => "Pesquisar";
+  String get searchFieldLabel => "Search";
 }
 
 class RepositoryList extends StatefulWidget {
@@ -92,7 +92,7 @@ class _RepositoryListState extends State<RepositoryList> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Flexible(child: const Text("Repositórios encontrados")),
+                Flexible(child: const Text("Found repositories")),
                 Text("${pagination.total}")
               ],
             ),
@@ -129,7 +129,7 @@ class _RepositoryListState extends State<RepositoryList> {
           separatorBuilder: (BuildContext context, int index) => Divider(),
         );
       },
-      hasErrorWidget: (err) => Center(child: Text("Deu erro")),
+      hasErrorWidget: (err) => Center(child: Text("Error occurred")),
       loadingWidget: () => Center(child: CircularProgressIndicator()),
       hasDataEmptyWidget: () => Container(),
     );
@@ -175,7 +175,7 @@ class RepositoryView extends StatelessWidget {
                     repository.owner.avatarUrl, width: 32, height: 32),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text(repository.owner.login ?? "Nome não informado"),
+                  child: Text(repository.owner.login ?? "Name not informed"),
                 )
               ],
             ),
@@ -184,7 +184,7 @@ class RepositoryView extends StatelessWidget {
             contentPadding: const EdgeInsets.symmetric(
                 horizontal: 16, vertical: 5),
             title: Text(repository.name),
-            subtitle: Text(repository?.description ?? "Sem descrição"),
+            subtitle: Text(repository?.description ?? "No description"),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -192,7 +192,7 @@ class RepositoryView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Flexible(
-                  child: Text(repository?.language ?? "Não definida"),
+                  child: Text(repository?.language ?? "Undefined"),
                 ),
                 TextIcon(
                   title: "${repository.stars}",

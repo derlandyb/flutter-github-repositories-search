@@ -93,13 +93,12 @@ class _UserScreenState extends State<UserScreen>  with AutomaticKeepAliveClientM
           );
         },
         hasDataEmptyWidget: () => Container(),
-        hasErrorWidget: (err) => const Center(child: const Text("Ocorreu um erro")),
+        hasErrorWidget: (err) => const Center(child: const Text("Error occurred")),
         loadingWidget: () => const Center(child: CircularProgressIndicator()),
       ),
     );
   }
 
   @override
-  // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
 }

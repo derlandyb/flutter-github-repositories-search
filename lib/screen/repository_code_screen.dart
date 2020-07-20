@@ -29,7 +29,7 @@ class _RepositoryCodeScreenState extends State<RepositoryCodeScreen> with Automa
             body: ListContent(contents: data),
           );
         },
-        hasErrorWidget: (err) => const Center(child: Text("Ocorreu um erro")),
+        hasErrorWidget: (err) => const Center(child: Text("Error occurred")),
         loadingWidget: () => const Center(child: CircularProgressIndicator()),
         hasDataEmptyWidget: () => Container(),
       ),
@@ -37,6 +37,5 @@ class _RepositoryCodeScreenState extends State<RepositoryCodeScreen> with Automa
   }
 
   @override
-  // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
 }

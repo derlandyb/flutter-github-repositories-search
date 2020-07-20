@@ -32,11 +32,11 @@ class _RepositoryTabScreenState extends State<RepositoryTabScreen> {
                 bottom: TabBar(
                   tabs: [
                     Container(
-                      child: const TextIcon(title: "Código", icon: const Icon(Icons.code)),
+                      child: const TextIcon(title: "Code", icon: const Icon(Icons.code)),
                       width: MediaQuery.of(context).size.width * 0.4
                     ),
                     Container(
-                      child: const TextIcon(title: "Proprietário", icon: const Icon(Icons.person)),
+                      child: const TextIcon(title: "Owner", icon: const Icon(Icons.person)),
                       width: MediaQuery.of(context).size.width * 0.4
                     )
                   ],

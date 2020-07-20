@@ -12,7 +12,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Bem vindo ao GitHub"),
+        title: const Text("Search repositories"),
         actions: [
           IconButton(
             onPressed: () {
@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: Center(
-        child: const Text("Buscar repositórios públicos"),
+        child: const Text("Searh public repositories"),
       ),
     );
   }

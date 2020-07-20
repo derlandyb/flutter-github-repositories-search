@@ -38,7 +38,7 @@ class RepositoryContentBlobScreen extends StatelessWidget {
 
             return WidgetCallSafe(
               checkIfNull: () => decodedContent != null,
-              fail: () => Center(child: Text("Não foi possível ler o arquivo")),
+              fail: () => Center(child: Text("Error trying to read this file")),
               success: () {
                 return SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
@@ -55,7 +55,7 @@ class RepositoryContentBlobScreen extends StatelessWidget {
               },
             );
           },
-          hasErrorWidget: (err) => const Center(child: Text("Ocorreu um erro")),
+          hasErrorWidget: (err) => const Center(child: Text("Error occurred")),
           loadingWidget: () => const Center(child: CircularProgressIndicator()),
           hasDataEmptyWidget: () => Container(),
         ),
